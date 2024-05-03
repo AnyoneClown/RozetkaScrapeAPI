@@ -1,6 +1,9 @@
 import os
 
 from pydantic.v1 import BaseSettings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Settings(BaseSettings):
@@ -10,9 +13,8 @@ class Settings(BaseSettings):
     ECHO_SQL: bool = True
 
     class Config:
-        env_file = ".env"
+        env_file = "backend/app/.env"
         case_sensitive = True
 
 
 settings = Settings()
-

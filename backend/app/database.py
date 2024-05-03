@@ -4,7 +4,7 @@ from typing import AsyncIterator, Any
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, AsyncConnection, async_sessionmaker
 from sqlalchemy.orm import declarative_base
 
-from app.config import settings
+from backend.app.config import settings
 
 
 Base = declarative_base()

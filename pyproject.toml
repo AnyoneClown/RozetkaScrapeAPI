@@ -2,7 +2,7 @@
 name = "app"
 version = "0.1.0"
 description = ""
-authors = ["github.com/AnyoneClown"]
+authors = ["Denys Denys <https://github.com/AnyoneClown>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -13,6 +13,8 @@ sqlalchemy = "^2.0.29"
 alembic = "^1.13.1"
 sqlalchemy-stubs = "^0.4"
 asyncpg = "^0.29.0"
+python-dotenv = "^1.0.1"
+psycopg2-binary = "^2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
