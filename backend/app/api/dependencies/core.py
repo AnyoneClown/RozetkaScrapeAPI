@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.database import sessionmanager
+from app.database import sessionmanager
 
 
 async def get_db_session():

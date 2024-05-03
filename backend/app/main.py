@@ -3,8 +3,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.core.config import settings
-from app.core.database import sessionmanager
+from app.config import settings
+from app.database import sessionmanager
 
 
 @asynccontextmanager
