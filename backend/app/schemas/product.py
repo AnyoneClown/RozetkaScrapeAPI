@@ -1,0 +1,21 @@
+from pydantic import BaseModel
+
+
+class ProductTypeBase(BaseModel):
+    title: str
+    description: str | None = None
+
+
+class ProductTypeCreate(ProductTypeBase):
+    pass
+
+
+class ProductTypeDelete(ProductTypeBase):
+    id: int
+
+
+class ProductType(ProductTypeBase):
+    id: int
+
+    class Config:
+        orm_mode = True
