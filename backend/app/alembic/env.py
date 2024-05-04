@@ -1,7 +1,6 @@
 import asyncio
 from logging.config import fileConfig
 
-from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
@@ -11,8 +10,8 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 
 from backend.app.config import settings
 from backend.app.database import Base
+from backend.app.models.product import Product, ProductType
 
-load_dotenv()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

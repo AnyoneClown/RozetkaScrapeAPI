@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Float, Integer, String
+from sqlalchemy import Boolean, Column, Float, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 from backend.app.database import Base
@@ -27,4 +27,5 @@ class Product(Base):
     wish_count = Column(Integer)
     available = Column(Boolean)
 
-    product_types = relationship("ProductType", back_populates="product")
+    product_type_id = Column(Integer, ForeignKey("product_types.id"))
+    product_type = relationship("ProductType", back_populates="products")
