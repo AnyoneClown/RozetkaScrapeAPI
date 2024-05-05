@@ -20,7 +20,7 @@ class DatabaseSessionManager:
         self._engine = create_async_engine(host, **engine_kwargs)
         self._sessionmaker = async_sessionmaker(autocommit=False, bind=self._engine)
 
-    async def close(self):
+    async def close(self) -> None:
         if self._engine is None:
             raise Exception("DatabaseSessionManager is not initialized")
         await self._engine.dispose()

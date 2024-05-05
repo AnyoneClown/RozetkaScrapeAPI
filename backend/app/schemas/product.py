@@ -7,11 +7,8 @@ class ProductTypeBase(BaseModel):
 
 
 class ProductTypeCreate(ProductTypeBase):
-    pass
-
-
-class ProductTypeDelete(ProductTypeBase):
-    id: int
+    title: str
+    description: str | None = None
 
 
 class ProductType(ProductTypeBase):

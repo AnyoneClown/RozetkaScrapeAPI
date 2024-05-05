@@ -1,16 +1,32 @@
 from fastapi import APIRouter
 
-from backend.app.crud.product import get_product_type_by_id, get_all_product_types
 from backend.app.api.dependencies.core import Session
-from backend.app.schemas.product import ProductType
+from backend.app.crud.product import (
+    delete_product_type,
+    get_all_product_types,
+    get_product_type_by_id,
+    create_product_type,
+)
+from backend.app.schemas.product import ProductType, ProductTypeCreate
+
 router = APIRouter(prefix="/api")
 
 
 @router.get("/product-types/{id}/", response_model=ProductType)
-async def retrieve_product_type(id: int, db: Session):
+async def retrieve_product_types(id: int, db: Session):
     return await get_product_type_by_id(id=id, db=db)
 
 
 @router.get("/product-types/", response_model=list[ProductType])
 async def get_product_types(db: Session):
     return await get_all_product_types(db=db)
+
+
+@router.delete("/product-types/{id}/", response_model=ProductType)
+async def delete_product_types(id: int, db: Session):
+    return await delete_product_type(id=id, db=db)
+
+
+@router.post("/product-types/", response_model=ProductType)
+async def post_product_type(db: Session, product_type: ProductTypeCreate):
+    return await create_product_type(db=db, product_type=product_type)
