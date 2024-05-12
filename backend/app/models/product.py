@@ -18,7 +18,7 @@ class Product(Base):
     __tablename__ = "product"
 
     id = Column(Integer, primary_key=True)
-    title = Column(Integer, index=True)
+    title = Column(String, index=True)
     product_code = Column(Integer, unique=True)
     rating = Column(Integer)
     reviews = Column(Integer)
