@@ -8,15 +8,15 @@ from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
     create_async_engine,
 )
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
 
 from backend.app.config import settings
 
-Base = declarative_base()
+Base: DeclarativeMeta = declarative_base()
 
 
 class DatabaseSessionManager:
-    def __init__(self, host: str, engine_kwargs: dict[str, Any] = {}):
+    def __init__(self, host: str, engine_kwargs: dict[str, Any] = {}):  # noqa
         self._engine = create_async_engine(host, **engine_kwargs)
         self._sessionmaker = async_sessionmaker(autocommit=False, bind=self._engine)
 

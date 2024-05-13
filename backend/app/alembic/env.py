@@ -10,8 +10,8 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 
 from backend.app.config import settings
 from backend.app.database import Base
-from backend.app.models.product import Product, ProductType
-
+from backend.app.models.product import Product, ProductType  # noqa
+from backend.app.models.user import User  # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

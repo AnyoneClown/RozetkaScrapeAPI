@@ -2,10 +2,10 @@ from fastapi import APIRouter
 
 from backend.app.api.dependencies.core import Session
 from backend.app.crud.product import (
+    create_product_type,
     delete_product_type,
     get_all_product_types,
     get_product_type_by_id,
-    create_product_type,
 )
 from backend.app.schemas.product import ProductType, ProductTypeCreate
 
