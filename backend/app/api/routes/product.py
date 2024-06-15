@@ -9,7 +9,7 @@ from backend.app.crud.product import (
 )
 from backend.app.schemas.product import ProductType, ProductTypeCreate
 
-router = APIRouter(prefix="/api")
+router = APIRouter()
 
 
 @router.get("/product-types/{id}/", response_model=ProductType)

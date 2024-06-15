@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from backend.app.api.routes.product import router as product_routes
+from backend.app.api.routes.user import router as user_routes
 from backend.app.config import settings
 from backend.app.database import sessionmanager
 
@@ -32,4 +33,5 @@ app.add_middleware(
 async def read_root():
     return {"Hello": "World"}
 
-app.include_router(product_routes)
+app.include_router(product_routes, prefix="/api/products")
+app.include_router(user_routes, prefix="/api/users")
